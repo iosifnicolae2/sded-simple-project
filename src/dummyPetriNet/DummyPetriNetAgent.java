@@ -1,8 +1,6 @@
 package dummyPetriNet;
 
-import ro.tarnauca.mdplus.petrinetexec.core.PetriNet;
-import ro.tarnauca.mdplus.petrinetexec.core.PetriNetEventGenerator;
-import ro.tarnauca.mdplus.petrinetexec.core.Transition;
+import ro.tarnauca.mdplus.petrinetexec.core.*;
 
 public class DummyPetriNetAgent {	
 
@@ -113,12 +111,34 @@ public class DummyPetriNetAgent {
 					"t4-p3", // arcLabel
 					1 // arcWeight
 			);
-		
-		} catch (Exception e) {
+
+
+            // declara si atribuie callback-uri
+            myPetriNet.retrieveTransition(T2).createTransitionCallback(new TransitionActionCallback() {
+
+                @Override
+                protected void callback(PetriNet arg0) {
+                    System.out.println("S-a executat tranzitia t2.");
+
+                }
+            });
+
+            PlaceActionCallback callback = new PlaceActionCallback() {
+
+                @Override
+                protected void callback(PetriNet arg0, Place arg1) {
+                    System.out.println("S-a modificat marcajul pozitiei p4");
+
+                }
+            };
+
+            myPetriNet.retrievePlace(P4).createActivePlaceCallback(1, callback);
+            myPetriNet.retrievePlace(P4).createInactivePlaceCallback(1, callback);
+
+        } catch (Exception e) {
 			e.printStackTrace();
 		}	
 
-		// declara si atribuie callback-uri
 
 	}	
 	
