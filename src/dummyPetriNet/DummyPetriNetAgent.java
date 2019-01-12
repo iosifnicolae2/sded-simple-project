@@ -146,5 +146,10 @@ public class DummyPetriNetAgent {
 			eventGeneratorA.addObserver(myPetriNet.getEventObserver());
 			
 			//executa tranzitii
+            eventGeneratorA.pushEvent(T1, 100L);
+            eventGeneratorA.pushEvent(T2, 200L);
+            eventGeneratorA.pushEvent(T3, 300L);
+            eventGeneratorA.pushEvent(T3, 400L);
+            eventGeneratorA.pushEvent(T3, 500L);
 		}
 }
