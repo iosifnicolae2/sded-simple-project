@@ -147,10 +147,14 @@ public class DummyPetriNetAgent {
 			
 			//executa tranzitii
             eventGeneratorA.pushEvent(T1, 100L);
+			myPetriNet.executeActivePlaces();
             eventGeneratorA.pushEvent(T2, 200L);
+			myPetriNet.executeActivePlaces();
             eventGeneratorA.pushEvent(T3, 300L);
+			myPetriNet.executeActivePlaces();
             eventGeneratorA.pushEvent(T3, 400L);
+			myPetriNet.executeActivePlaces();
             eventGeneratorA.pushEvent(T3, 500L);
-
+            myPetriNet.executeActivePlaces();
 		}
 }
